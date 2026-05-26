@@ -1,0 +1,19 @@
+PS Cxampphtdocs npx create-next-app@latest vismayintlcorp
+√ Would you like to use the recommended Next.js defaults » No, reuse previous settings
+Creating a new Next.js app in Cxampphtdocsvismayintlcorp.
+
+Using npm.
+
+Initializing project with template app-tw
+
+
+Installing dependencies
+- next
+- react
+- react-dom
+
+Installing devDependencies
+- @tailwindcsspostcss
+- eslint
+- eslint-config-next
+- tailwindcss

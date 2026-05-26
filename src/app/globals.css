@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+   --background: #ffffff;
+   --foreground: #171717;
+   --blue: #06529b;
+   --dark-blue: #0b3c89;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+   --color-background: var(--background);
+   --color-foreground: var(--foreground);
+   --font-sans: var(--font-geist-sans);
+   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+   :root {
+      --background: #121212;
+      --foreground: #ededed;
+      --blue: #043a70;
+      --text-blue: #06529b;
+   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+   background: var(--background);
+   color: var(--foreground);
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+   @apply text-2xl sm:text-3xl lg:text-4xl font-bold;
+}
+
+h2 {
+   @apply text-xl sm:text-2xl lg:text-3xl font-semibold;
+}
+
+h3 {
+   @apply text-lg sm:text-xl lg:text-2xl font-semibold;
+}
+
+h4 {
+   @apply text-base sm:text-lg lg:text-xl font-bold;
+}
+
+h5 {
+   @apply text-sm sm:text-base lg:text-lg font-medium;
+}
+h6 {
+   @apply text-3xl md:text-5xl font-black;
+} /* ~42?px */
+
+button {
+   @apply cursor-pointer;
+}
+
+.col {
+   @apply flex flex-col;
+}
+
+.colLgRow {
+   @apply flex flex-col lg:flex-row;
+}
+
+::placeholder {
+   @apply text-white dark:opacity-50;
+}
+
+input:focus {
+   @apply outline-[var(--dark-blue)];
+}
+
+.blueText {
+   color: #06529b;
+}
+
+@media (prefers-color-scheme: dark) {
+   .blueText {
+      color: #0e6bc2;
+   }
 }
