@@ -1,34 +1,30 @@
-// import { NextResponse } from "next/server";
-// import bcrypt from "bcrypt";
+import { NextResponse } from "next/server";
+import bcrypt from "bcryptjs";
 
-// const fakeUser = {
-//    email: "testgmail.com",
-// //bcrypt hash for passwordL "password123"
-// passwordHash:
-//       "$2b$10$CwTycUXWue0Thq9StjUM0uJ8b5Y3v2xk0yqzWQ3Q8a9X5p1Q8fG6K",
-// };
+// fake user (replace with DB later)
+const user = {
+   username: "admin0123",
+   passwordHash: "$2b$10$vS2LNxCBAhziMkSCN.Dcv.e8NMhXjaD3VGz4Jwc3Ba1nnImcOuyAO", // hash for "password123"
+};
 
-// export async function POST(req: Request) {
-//    const {email, password} = await req.json();
-//    // 1. check user
-//    if(email !== fakeUser.email) {
-//       return NextResponse.json(
-//          {message: "Invalid credentials"},
-//          {status: 401}
-//       );
-//    }
+export async function POST(req) {
+   const { username, password } = await req.json();
 
-//    const isValid = await bcrypt.compare(password, fakeUser.passwordHash);
+   if (username !== user.username) {
+      return NextResponse.json(
+         { message: "Invalid credentials" },
+         { status: 401 },
+      );
+   }
 
-//    if (!isValid) {
-//       return NextResponse.json(
-//          {message: "Invalid credentials"},
-//          {status: 401}
-//       );
-//    }
+   const isValid = await bcrypt.compare(password, user.passwordHash);
 
-//    return NextResponse.json({
-//       message: "Login successful",
-//       user: {email},
-//    });
-// }
+   if (!isValid) {
+      return NextResponse.json(
+         { message: "Invalid credentials" },
+         { status: 401 },
+      );
+   }
+
+   return NextResponse.json({ message: "Login successful" });
+}

@@ -18,16 +18,17 @@ export function Footer() {
                      width={300}
                      height={120}
                      alt="Vismay Logo"
-                     className="md:max-w-[200px] lg:max-w-[300px]"
+                     className="w-full max-w-[300px] h-auto"
                   />
+
                   <Link href="/">
                      <Image
                         src="/icons/SPC-DPO-DPS-Seal-of-Registration-2025-1438x1438-1-1024x1024.png"
                         width={75}
                         height={75}
                         alt="DPO DPS Approved Image"
-                        className="md:max-w-[50px]"
-                     ></Image>
+                        className="md:max-w-[50px] h-auto"
+                     />
                   </Link>
                </div>
             </div>
